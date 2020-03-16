@@ -13,5 +13,6 @@ const middleOld = function(param) {
 };
 
 myFun('test');
+myFun('test', 'moro');
 veryOld('old school function');
 middleOld('middle test');
