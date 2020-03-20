@@ -14,18 +14,7 @@ app.get('/test', (req, res) => {
   res.send(`Hello there! demo URL param: ${req.query.demo} and more: ${req.query.more}`);
 });
 
-app.get('/catinfo', (req, res) => {
-  const cat = {
-    'name': 'Frank',
-    'age': 6,
-    'weight': 5,
-  }
-  res.json(cat);
-});
-
-app.post('/catinfo', (req, res) => {
-  console.log('HTTP POST with body params', req.body);
-  res.send(`catinfo with HTTP POST 😊 with name: ${req.body.name} and age: ${req.body.age}`);
-});
+//load the routes for /catinfo
+app.use('/catinfo', require('./catroute'));
 
 app.listen(3000);
