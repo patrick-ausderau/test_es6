@@ -15,6 +15,6 @@ app.get('/test', (req, res) => {
 });
 
 //load the routes for /catinfo
-app.use('/catinfo', require('./catroute'));
+app.use('/catinfo', require('./routes/catroute'));
 
 app.listen(3000);
