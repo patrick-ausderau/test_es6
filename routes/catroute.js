@@ -6,6 +6,8 @@ const cats = require('../db/catmodel').cats;
 router.route('/')
   .get((req, res) => {
     // select * form ...
+    const reduced = cats.reduce((total, item) => total + item.age, 0);
+    console.log('reduce total age of all cats', reduced);
     res.json(cats);
   })
   .post((req, res) => {
