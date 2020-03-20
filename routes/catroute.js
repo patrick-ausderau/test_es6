@@ -17,11 +17,14 @@ router.route('/')
   .patch((req, res) => {
     console.log('HTTP PATCH with body params', req.body);
     // update all items
-    const mapped = cats.map(item => ++item.age);
+    const mapped = cats.map(item => {
+      item.age++;
+      return item;
+    });
     //res.send('this is PATCH (usually for partial update)');
     res.json(mapped);
   });
-
+// root v.s. route
 router.route('/:id')
   .get((req, res) => {
     // select * from ... where id = ...
