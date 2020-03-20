@@ -1,18 +1,19 @@
 'use strict';
 
-const myFun = (param, more = 'more with default') => 
-  console.log('arrow function with params and more?', param, more);
+const express = require('express');
+const app = express();
 
+app.get('/', (req, res) => {
+  console.log('get request to /', req);
+  res.send('Hello there!');
+});
 
-function veryOld(param) {
-  console.log('very old', param);
-}
+app.get('/catinfo', (req, res) => {
+  const cat = {
+    'name': 'Frank',
+    'age': 6,
+    'weight': 5,
+  }
+});
 
-const middleOld = function(param) {
-  console.log('middleOld', param);
-};
-
-myFun('test');
-myFun('test', 'moro');
-veryOld('old school function');
-middleOld('middle test');
+app.listen(3000);
